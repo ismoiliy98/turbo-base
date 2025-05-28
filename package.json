@@ -1,24 +1,33 @@
 {
-  "name": "turboshop",
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
-  },
-  "devDependencies": {
-    "prettier": "^3.5.3",
-    "turbo": "^2.5.3",
-    "typescript": "5.8.2"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "packageManager": "bun@1.2.14",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+	"name": "turbo-base",
+	"private": true,
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"scripts": {
+		"biome:check": "biome check .",
+		"biome:fix": "biome check . --fix",
+		"clean": "git clean -xdf .turbo node_modules",
+		"clean:workspaces": "dotenv -- turbo clean",
+		"packages:check": "bun packages:sort -c && bunx sherif@latest",
+		"packages:fix": "bun packages:sort && bunx sherif@latest --fix",
+		"packages:sort": "bunx sort-package-json@latest \"apps/*/package.json\" \"packages/*/package.json\" \"package.json\""
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@cspell/dict-ru_ru": "^2.3.0",
+		"lefthook": "^1.11.13",
+		"turbo": "^2.5.3",
+		"typescript": "^5.8.3"
+	},
+	"packageManager": "bun@1.2.14",
+	"engines": {
+		"bun": "1.2.14",
+		"vscode": "^1.22.0"
+	},
+	"trustedDependencies": [
+		"@biomejs/biome",
+		"lefthook"
+	]
 }

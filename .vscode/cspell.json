@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en,ru",
+  "import": ["@cspell/dict-ru_ru/cspell-ext.json"],
+  "ignorePaths": [".vscode", "node_modules", "dist"],
+  "dictionaries": ["Dev", "Namings", "Other"],
+  "dictionaryDefinitions": [
+    { "name": "Dev", "path": "cspell/dev.txt", "noSuggest": true },
+    { "name": "Namings", "path": "cspell/namings.txt", "noSuggest": true },
+    { "name": "Other", "path": "cspell/other.txt", "noSuggest": true }
+  ]
+}

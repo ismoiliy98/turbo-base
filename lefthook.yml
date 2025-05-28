@@ -1,0 +1,17 @@
+pre-commit:
+  parallel: true
+  skip:
+    - merge
+    - rebase
+  commands:
+    cspell-check:
+      run: bunx cspell -c .vscode/cspell.json --gitignore {staged_files}
+    biome-check:
+      run: >-
+        bun biome check
+        --no-errors-on-unmatched
+        --files-ignore-unknown=true
+        --colors=off {staged_files}
+    sort-packages:
+      run: bun packages:sort
+      stage_fixed: true

@@ -1,6 +1,7 @@
 {
 	"name": "turbo-base",
 	"private": true,
+	"type": "module",
 	"workspaces": [
 		"apps/*",
 		"packages/*"
@@ -16,9 +17,11 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
+		"@commitlint/cli": "^19.8.1",
+		"@commitlint/config-conventional": "^19.8.1",
 		"@cspell/dict-ru_ru": "^2.3.0",
 		"lefthook": "^1.11.13",
-		"turbo": "^2.5.3",
+		"turbo": "^2.5.4",
 		"typescript": "^5.8.3"
 	},
 	"packageManager": "bun@1.2.14",

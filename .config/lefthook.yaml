@@ -1,7 +1,7 @@
 commit-msg:
   commands:
     commitlint:
-      run: bun commitlint -g .config/commitlint.yaml --edit {1}
+      run: bunx commitlint -g .config/commitlintrc.yaml --edit {1}
 
 pre-commit:
   parallel: true
@@ -13,6 +13,8 @@ pre-commit:
       run: bunx cspell -c .vscode/cspell.json --gitignore {staged_files}
     biome-check:
       run: bun biome check --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+    knip-check:
+      run: bun knip:check
     sort-packages:
       run: bun packages:sort
       stage_fixed: true

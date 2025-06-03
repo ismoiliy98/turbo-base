@@ -1,5 +1,5 @@
 {
-	"name": "@pkg/shared",
-	"version": "0.0.0",
-	"private": true
+  "name": "@pkg/shared",
+  "version": "0.0.0",
+  "private": true
 }

@@ -9,7 +9,7 @@
     "biome:check": "biome check .",
     "biome:fix": "biome check . --fix",
     "clean": "git clean -xdf .turbo node_modules",
-    "clean:workspaces": "dotenv turbo clean",
+    "clean:all": "turbo clean",
     "knip:check": "bunx knip -c .config/knip.json --cache",
     "knip:fix": "bun knip:check --fix",
     "packages:check": "bun packages:sort -c && bunx sherif@latest",
@@ -20,14 +20,15 @@
     "@biomejs/biome": "1.9.4",
     "@commitlint/config-conventional": "^19.8.1",
     "@cspell/dict-ru_ru": "^2.3.0",
-    "dotenv-cli": "^8.0.0",
+    "@types/bun": "1.2.15",
+    "@types/node": "^22.15.29",
     "lefthook": "^1.11.13",
     "turbo": "^2.5.4",
     "typescript": "^5.8.3"
   },
-  "packageManager": "bun@1.2.14",
+  "packageManager": "bun@1.2.15",
   "engines": {
-    "bun": "1.2.14",
+    "bun": "1.2.15",
     "vscode": "^1.22.0"
   },
   "trustedDependencies": [

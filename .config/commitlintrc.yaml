@@ -3,3 +3,4 @@ extends:
 
 rules:
   body-max-length: [2, always, 1024]
+  body-max-line-length: [2, always, 256]

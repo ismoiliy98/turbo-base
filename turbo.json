@@ -5,7 +5,8 @@
   "globalPassThroughEnv": ["PORT"],
   "tasks": {
     "//#clean": { "cache": false, "outputLogs": "none" },
-    "clean": { "cache": false, "outputLogs": "none" }
+    "clean": { "cache": false, "outputLogs": "none" },
+    "dev": { "cache": false, "persistent": true }
   },
   "remoteCache": { "enabled": true, "signature": true }
 }

@@ -3,7 +3,7 @@
   "version": "0.2",
   "language": "en,ru",
   "import": ["@cspell/dict-ru_ru/cspell-ext.json"],
-  "ignorePaths": [".vscode", "node_modules", "dist"],
+  "ignorePaths": [".tanstack", ".turbo", ".vscode", "dist", "node_modules"],
   "dictionaries": ["Dev", "Namings", "Other"],
   "dictionaryDefinitions": [
     { "name": "Dev", "path": "cspell/dev.txt", "noSuggest": true },

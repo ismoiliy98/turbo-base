@@ -1,15 +1,32 @@
 {
   "name": "turbo-base",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*",
+      "tools/*"
+    ],
+    "catalogs": {
+      "react": {
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "@types/react": "^19.1.8",
+        "@types/react-dom": "^19.1.6"
+      },
+      "tooling": {
+        "typescript": "^5.8.3",
+        "vite": "^6.3.5",
+        "vite-tsconfig-paths": "^5.1.4"
+      }
+    }
+  },
   "scripts": {
     "biome:check": "biome check .",
     "biome:fix": "biome check . --fix",
     "clean": "git clean -xdf .turbo node_modules",
     "clean:all": "turbo clean",
+    "dev": "turbo dev --parallel",
     "knip:check": "bunx knip -c .config/knip.json --cache",
     "knip:fix": "bun knip:check --fix",
     "packages:check": "bun packages:sort -c && bunx sherif@latest",
@@ -20,15 +37,15 @@
     "@biomejs/biome": "1.9.4",
     "@commitlint/config-conventional": "^19.8.1",
     "@cspell/dict-ru_ru": "^2.3.0",
-    "@types/bun": "1.2.15",
-    "@types/node": "^22.15.29",
-    "lefthook": "^1.11.13",
+    "@types/bun": "^1.2.16",
+    "@types/node": "^24.0.3",
+    "lefthook": "^1.11.14",
     "turbo": "^2.5.4",
     "typescript": "^5.8.3"
   },
-  "packageManager": "bun@1.2.15",
+  "packageManager": "bun@1.2.16",
   "engines": {
-    "bun": "1.2.15",
+    "bun": "1.2.16",
     "vscode": "^1.22.0"
   },
   "trustedDependencies": [

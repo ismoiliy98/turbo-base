@@ -24,7 +24,7 @@
     "incremental": true,
     "declaration": false,
     "disableSourceOfProjectReferenceRedirect": true,
-    "tsBuildInfoFile": "${configDir}/.cache/.tsbuildinfo",
+    "tsBuildInfoFile": "${configDir}/node_modules/.cache/.tsbuildinfo",
 
     "strict": true,
     "noImplicitAny": true,

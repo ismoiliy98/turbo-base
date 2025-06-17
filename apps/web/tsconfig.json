@@ -1,0 +1,5 @@
+{
+  "extends": "@tool/tsconfig/react.tsconfig",
+  "compilerOptions": { "paths": { "~/*": ["./src/*"] } },
+  "exclude": [".tanstack", ".turbo", "dist", "node_modules", "routeTree.gen.ts"]
+}

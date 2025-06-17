@@ -6,7 +6,7 @@
     "useIgnoreFile": true,
     "defaultBranch": "main"
   },
-  "files": { "ignoreUnknown": false, "ignore": ["package.json"] },
+  "files": { "ignoreUnknown": false, "ignore": ["package.json", "*.gen.ts"] },
   "organizeImports": { "enabled": true },
   "linter": {
     "enabled": true,

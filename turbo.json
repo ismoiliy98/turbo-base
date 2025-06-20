@@ -4,9 +4,14 @@
   "globalEnv": ["NODE_ENV"],
   "globalPassThroughEnv": ["PORT"],
   "tasks": {
+    "transit": { "dependsOn": ["^transit"] },
     "//#clean": { "cache": false, "outputLogs": "none" },
     "clean": { "cache": false, "outputLogs": "none" },
     "dev": { "cache": false, "persistent": true },
+    "ts:check": {
+      "dependsOn": ["transit"],
+      "outputs": ["node_modules/.cache/.tsbuildinfo"]
+    },
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*", "!.env.sample"]

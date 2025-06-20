@@ -2,5 +2,7 @@
   "name": "@tool/tsconfig",
   "version": "0.1.0",
   "private": true,
-  "files": ["*.tsconfig.json"]
+  "files": [
+    "*.tsconfig.json"
+  ]
 }

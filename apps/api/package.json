@@ -1,5 +1,19 @@
 {
   "name": "@app/api",
-  "version": "0.0.0",
-  "private": true
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "clean": "git clean -xdf .turbo dist node_modules",
+    "dev": "bun run --watch src/main.ts"
+  },
+  "dependencies": {
+    "@yolk-oss/elysia-env": "^3.0.0",
+    "elysia": "^1.3.5"
+  },
+  "devDependencies": {
+    "@tool/tsconfig": "workspace:",
+    "@types/bun": "catalog:tooling",
+    "@types/node": "catalog:tooling",
+    "typescript": "catalog:tooling"
+  }
 }

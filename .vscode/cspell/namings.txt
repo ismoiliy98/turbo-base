@@ -1,4 +1,5 @@
 commitlint
+consola
 elysia
 lefthook
 tanstack

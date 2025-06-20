@@ -5,6 +5,10 @@
       "entry": ["src/{index,main}.{ts,tsx}"],
       "project": ["**/*.{ts,tsx,json}"]
     },
+    "apps/api": {
+      "entry": ["src/main.ts", "scripts/build.ts"],
+      "project": ["**/*.{ts,tsx,json}"]
+    },
     "apps/web": {
       "entry": ["src/router.{ts,tsx}"],
       "ignore": ["src/routeTree.gen.ts"]

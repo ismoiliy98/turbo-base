@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build": "bun --bun scripts/build.ts",
     "clean": "git clean -xdf .turbo dist node_modules",
     "dev": "bun run --watch src/main.ts"
   },
@@ -14,6 +15,7 @@
     "@tool/tsconfig": "workspace:",
     "@types/bun": "catalog:tooling",
     "@types/node": "catalog:tooling",
+    "consola": "^3.4.2",
     "typescript": "catalog:tooling"
   }
 }

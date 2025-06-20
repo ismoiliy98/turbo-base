@@ -1,0 +1,1 @@
+{ "extends": "@tool/tsconfig/base.tsconfig", "exclude": ["node_modules"] }

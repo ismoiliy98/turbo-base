@@ -1,0 +1,24 @@
+{
+  "name": "@tool/tailwind-config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./mobile": "./mobile.ts",
+    "./web": "./web.ts"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules",
+    "ts:check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "tailwindcss": "catalog:tooling",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@tool/tsconfig": "workspace:",
+    "@types/bun": "catalog:tooling",
+    "@types/node": "catalog:tooling",
+    "typescript": "catalog:tooling"
+  }
+}

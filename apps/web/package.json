@@ -22,6 +22,6 @@
     "@types/react-dom": "catalog:react",
     "typescript": "catalog:tooling",
     "vite": "catalog:tooling",
-    "vite-tsconfig-paths": "catalog:tooling"
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

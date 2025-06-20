@@ -1,7 +1,6 @@
 .DS_Store
 .env*
 !.env.sample
-.tanstack
 .turbo
 dist
 node_modules

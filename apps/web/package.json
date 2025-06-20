@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prebuild": "git clean -xdf .nitro .output .tanstack dist",
     "build": "vite build",
-    "clean": "git clean -xdf .tanstack .turbo dist node_modules",
+    "clean": "git clean -xdf .nitro .output .tanstack .turbo dist node_modules",
     "dev": "vite dev"
   },
   "dependencies": {

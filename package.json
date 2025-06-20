@@ -26,6 +26,7 @@
   "scripts": {
     "biome:check": "biome check .",
     "biome:fix": "biome check . --fix",
+    "build": "turbo build",
     "clean": "git clean -xdf .turbo node_modules",
     "clean:all": "turbo clean",
     "dev": "turbo dev --parallel",

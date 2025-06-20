@@ -1,6 +1,8 @@
 commitlint
 consola
+defu
 elysia
+elysiajs
 lefthook
 tanstack
 turborepo

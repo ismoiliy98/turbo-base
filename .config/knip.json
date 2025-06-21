@@ -11,7 +11,8 @@
     },
     "apps/web": {
       "entry": ["src/router.{ts,tsx}"],
-      "ignore": ["src/routeTree.gen.ts"]
+      "ignore": ["src/routeTree.gen.ts"],
+      "ignoreDependencies": ["@fontsource*"]
     },
     "tools/*": { "project": ["**/*.{ts,tsx,json}"] }
   },

@@ -3,6 +3,7 @@ consola
 defu
 elysia
 elysiajs
+fontsource
 lefthook
 tanstack
 turborepo

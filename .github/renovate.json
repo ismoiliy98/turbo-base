@@ -1,13 +1,35 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "extends": [
+    "config:recommended"
+  ],
   "updateInternalDeps": true,
   "rangeStrategy": "bump",
   "automerge": true,
   "packageRules": [
-    { "matchPackagePatterns": ["^@pkg/"], "enabled": false },
-    { "matchPackagePatterns": ["^@app/"], "groupName": "internal apps" },
-    { "matchPackagePatterns": ["^@tool/"], "groupName": "internal tools" }
+    {
+      "enabled": false,
+      "matchPackageNames": [
+        "/^@pkg//"
+      ]
+    },
+    {
+      "groupName": "internal apps",
+      "matchPackageNames": [
+        "/^@app//"
+      ]
+    },
+    {
+      "groupName": "internal tools",
+      "matchPackageNames": [
+        "/^@tool//"
+      ]
+    }
   ],
-  "npm": { "fileMatch": ["(^|/)package\\.json$", "(^|/)package\\.json\\.hbs$"] }
+  "npm": {
+    "managerFilePatterns": [
+      "/(^|/)package\\.json$/",
+      "/(^|/)package\\.json\\.hbs$/"
+    ]
+  }
 }

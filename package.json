@@ -71,7 +71,7 @@
   "packageManager": "bun@1.2.16",
   "engines": {
     "bun": "1.2.16",
-    "vscode": "^1.22.0"
+    "vscode": "^1.101.1"
   },
   "trustedDependencies": [
     "@biomejs/biome",

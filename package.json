@@ -1,6 +1,28 @@
 {
   "name": "turbo-base",
   "private": true,
+  "description": "A modern monorepo technology showcase demonstrating high-performance tools and development practices",
+  "keywords": [
+    "monorepo",
+    "dx",
+    "modern-tools",
+    "performance",
+    "bun",
+    "turbo",
+    "typescript",
+    "react",
+    "development-practices"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ismoiliy98/turbo-base.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Bekhzod Ismoiliy",
+    "email": "bek@ismoiliy.dev",
+    "url": "https://ismoiliy.dev"
+  },
   "workspaces": {
     "packages": [
       "apps/*",

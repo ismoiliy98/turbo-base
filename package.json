@@ -56,7 +56,8 @@
     "knip:fix": "bun knip:check --fix",
     "packages:check": "bun packages:sort -c && bunx sherif@latest",
     "packages:fix": "bun packages:sort && bunx sherif@latest --fix",
-    "packages:sort": "bunx sort-package-json@latest \"apps/*/package.json\" \"packages/*/package.json\" \"tools/*/package.json\" \"package.json\""
+    "packages:sort": "bunx sort-package-json@latest \"apps/*/package.json\" \"packages/*/package.json\" \"tools/*/package.json\" \"package.json\"",
+    "ui:add": "turbo ui:add"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

@@ -4,7 +4,7 @@ import animate from 'tailwindcss-animate';
 import base from './base';
 
 export default {
-  content: base.content,
+  content: [...base.content, '../../packages/ui/src/**/*.{ts,tsx}'],
   presets: [base],
   plugins: [animate],
   theme: {},

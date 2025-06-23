@@ -26,6 +26,7 @@
   "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[dockercompose]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[postcss]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }

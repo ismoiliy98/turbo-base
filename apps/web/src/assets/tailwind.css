@@ -59,20 +59,20 @@
   }
 
   .dark {
-    --background: 0 0% 18.4314%;
+    --background: 20 4.2254% 13.9216%;
     --foreground: 0 0% 80%;
     --card: 0 0% 24.7059%;
     --card-foreground: 0 0% 80%;
     --popover: 0 0% 24.7059%;
     --popover-foreground: 0 0% 80%;
     --primary: 17.1429 100% 73.9216%;
-    --primary-foreground: 0 0% 18.4314%;
+    --primary-foreground: 20 4.2254% 13.9216%;
     --secondary: 202.5 5% 31.3725%;
     --secondary-foreground: 0 0% 80%;
     --muted: 0 0% 40%;
     --muted-foreground: 0 0% 80%;
     --accent: 17.1429 100% 73.9216%;
-    --accent-foreground: 0 0% 18.4314%;
+    --accent-foreground: 20 4.2254% 13.9216%;
     --destructive: 1.7391 64.486% 58.0392%;
     --destructive-foreground: 0 0% 80%;
     --border: 0 0% 33.3333%;
@@ -86,9 +86,9 @@
     --sidebar: 0 0% 24.7059%;
     --sidebar-foreground: 0 0% 80%;
     --sidebar-primary: 17.1429 100% 73.9216%;
-    --sidebar-primary-foreground: 0 0% 18.4314%;
+    --sidebar-primary-foreground: 20 4.2254% 13.9216%;
     --sidebar-accent: 17.1429 100% 73.9216%;
-    --sidebar-accent-foreground: 0 0% 18.4314%;
+    --sidebar-accent-foreground: 20 4.2254% 13.9216%;
     --sidebar-border: 0 0% 33.3333%;
     --sidebar-ring: 17.1429 100% 73.9216%;
     --radius: 1.5rem;
@@ -105,5 +105,57 @@
     --shadow-xl: 0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 8px 10px -5px
       hsl(0 0% 0% / 0.08);
     --shadow-2xl: 0px 8px 16px -4px hsl(0 0% 0% / 0.2);
+  }
+
+  .root::before {
+    content: "";
+
+    background: radial-gradient(
+        ellipse 50% 50% at 0% 0%,
+        hsl(var(--accent) / 0.25),
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 50% 50% at 0% 100%,
+        hsl(var(--primary) / 0.25),
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 50% 60% at 100% 0%,
+        hsl(var(--primary) / 0.25),
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 50% 60% at 100% 100%,
+        hsl(var(--accent) / 0.25),
+        transparent 70%
+      );
+
+    animation: bg-pos 25s infinite;
+    background-size: 200% 200%;
+    background-position: 100% 0%, 0% 100%;
+
+    @apply absolute inset-0 saturate-200;
+  }
+
+  @keyframes bg-pos {
+    0% {
+      background-position: 0% 0%, 100% 100%;
+    }
+    20% {
+      background-position: 100% 0%, 100% 0%;
+    }
+    40% {
+      background-position: 0% 100%, 100% 100%;
+    }
+    60% {
+      background-position: 0% 100%, 0% 0%;
+    }
+    80% {
+      background-position: 0% 100%, 0% 100%;
+    }
+    100% {
+      background-position: 0% 0%, 100% 100%;
+    }
   }
 }

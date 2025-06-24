@@ -1,5 +1,6 @@
 import { createRootRoute } from '@tanstack/react-router';
 import { RootComponent } from '~/components/root';
+import { getThemeServerFn } from '~/lib/theme';
 
 export const Route = createRootRoute({
   head: () => ({
@@ -13,4 +14,5 @@ export const Route = createRootRoute({
     ],
   }),
   component: RootComponent,
+  loader: () => getThemeServerFn(),
 });

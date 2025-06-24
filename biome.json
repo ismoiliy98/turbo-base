@@ -13,7 +13,18 @@
     "rules": {
       "recommended": true,
       "correctness": { "noUnusedImports": "warn" },
-      "style": { "useImportType": "warn", "useExportType": "warn" }
+      "style": { "useImportType": "warn", "useExportType": "warn" },
+      "a11y": { "useSemanticElements": "off", "useKeyWithClickEvents": "off" },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "error",
+          "fix": "safe",
+          "options": {
+            "attributes": ["className"],
+            "functions": ["clsx", "cva", "tw", "cn"]
+          }
+        }
+      }
     }
   },
   "formatter": {
@@ -28,5 +39,6 @@
       "semicolons": "always",
       "quoteStyle": "single"
     }
-  }
+  },
+  "css": { "formatter": { "enabled": true } }
 }

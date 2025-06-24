@@ -1,29 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
   "updateInternalDeps": true,
   "rangeStrategy": "bump",
   "automerge": true,
   "packageRules": [
     {
       "enabled": false,
-      "matchPackageNames": [
-        "/^@pkg//"
-      ]
+      "matchPackageNames": ["/^@pkg//"]
     },
     {
       "groupName": "internal apps",
-      "matchPackageNames": [
-        "/^@app//"
-      ]
+      "matchPackageNames": ["/^@app//"]
     },
     {
       "groupName": "internal tools",
-      "matchPackageNames": [
-        "/^@tool//"
-      ]
+      "matchPackageNames": ["/^@tool//"]
     }
   ],
   "npm": {

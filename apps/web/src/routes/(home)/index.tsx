@@ -6,12 +6,11 @@ export const Route = createFileRoute('/(home)/')({ component: Home });
 
 function Home() {
   const [count, setCount] = useState(0);
-
   return (
     <div className="flex flex-col items-center justify-center gap-4">
-      <h1 className="text-neutral-400 text-3xl font-thin">Turbo Base</h1>
+      <h1 className="font-thin text-3xl text-neutral-400">Turbo Base</h1>
       <div className="flex items-center justify-center gap-2">
-        <span className="text-primary">Count: {count}</span>
+        <span className="text-neutral-500">Count: {count}</span>
         <Button size="sm" onClick={() => setCount(count + 1)}>
           Add +1
         </Button>

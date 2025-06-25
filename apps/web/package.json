@@ -16,6 +16,7 @@
     "@pkg/ui": "workspace:*",
     "@tanstack/react-router": "^1.121.34",
     "@tanstack/react-start": "^1.121.35",
+    "lucide-react": "^0.523.0",
     "react": "catalog:react",
     "react-dom": "catalog:react"
   },

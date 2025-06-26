@@ -1,0 +1,4 @@
+{
+  "extends": "@tool/tsconfig/bun.tsconfig",
+  "exclude": [".turbo", "dist", "node_modules"]
+}

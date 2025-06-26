@@ -1,0 +1,27 @@
+{
+  "name": "@tool/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "bin": {
+    "tool-cli": "./bin/cli.ts"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules",
+    "ts:check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@commander-js/extra-typings": "^14.0.0",
+    "@inquirer/prompts": "^7.5.3",
+    "@tool/tsconfig": "workspace:",
+    "@types/bun": "catalog:tooling",
+    "@types/node": "catalog:tooling",
+    "commander": "^14.0.0",
+    "consola": "^3.4.2",
+    "defu": "^6.1.4",
+    "typescript": "catalog:tooling"
+  }
+}

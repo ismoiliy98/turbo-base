@@ -1,3 +1,5 @@
+archs
 bunx
 commitlintrc
 knip
+nothrow

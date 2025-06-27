@@ -1,5 +1,9 @@
+addgroup
+adduser
 archs
 bunx
 commitlintrc
 knip
+libc
+libstdc
 nothrow

@@ -3,6 +3,6 @@
   "extends": ["//"],
   "tasks": {
     "build": { "outputs": ["dist/**"] },
-    "build:for": { "interactive": true, "cache": false }
+    "compile": { "interactive": true, "cache": false }
   }
 }

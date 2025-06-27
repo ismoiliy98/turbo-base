@@ -1,12 +1,12 @@
 {
   "name": "@app/api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
-    "build": "bun build:for --current",
-    "build:for": "tool-cli compile src/main.ts --prefix api --clean --bytecode --minify --sourcemap",
+    "build": "bun --bun run compile --current",
     "clean": "git clean -xdf .turbo dist node_modules",
-    "dev": "bun run --watch src/main.ts",
+    "compile": "tool-cli compile src/main.ts --clean --sourcemap",
+    "dev": "bun --bun run --watch src/main.ts",
     "ts:check": "tsc --noEmit"
   },
   "dependencies": {

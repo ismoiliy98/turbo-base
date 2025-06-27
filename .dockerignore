@@ -1,0 +1,10 @@
+**/.DS_Store
+**/.env*
+**/!.env.sample
+**/.nitro
+**/.output
+**/.tanstack
+**/.turbo
+**/dist
+**/node_modules
+**/out

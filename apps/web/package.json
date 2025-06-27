@@ -1,11 +1,10 @@
 {
   "name": "@app/web",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vite build && bun build:for --current",
-    "build:for": "tool-cli compile .output/server/index.mjs --prefix web --clean --bytecode --minify --sourcemap",
+    "build": "vite build",
     "clean": "git clean -xdf .nitro .output .tanstack .turbo dist node_modules",
     "dev": "vite dev",
     "ts:check": "tsc --noEmit"
@@ -21,7 +20,6 @@
     "react-dom": "catalog:react"
   },
   "devDependencies": {
-    "@tool/cli": "workspace:*",
     "@tool/tailwind-config": "workspace:",
     "@tool/tsconfig": "workspace:",
     "@types/react": "catalog:react",

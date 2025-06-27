@@ -23,5 +23,6 @@
       "/(^|/)package\\.json$/",
       "/(^|/)package\\.json\\.hbs$/"
     ]
-  }
+  },
+  "ignoreDeps": ["vscode"]
 }

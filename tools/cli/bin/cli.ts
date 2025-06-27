@@ -23,7 +23,7 @@ function intParser(value: string) {
 }
 
 program
-  .command('compile <entry>')
+  .command('compile <entries...>')
   .description('Compile provided entries into bun single-file executable')
   .addOption(
     new Option('-t, --target <targets...>', 'Target platform')

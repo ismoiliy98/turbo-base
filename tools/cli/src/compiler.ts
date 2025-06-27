@@ -1,4 +1,3 @@
-import { exists } from 'node:fs/promises';
 import { join } from 'node:path';
 import { consola } from 'consola';
 import { defu } from 'defu';
@@ -28,7 +27,7 @@ function getOutfilePath(outFilePrefix: string, target: string, outDir: string) {
 }
 
 async function parseCompilerOptions(opts: CompilerOptions) {
-  if (!opts.entry?.trim()) {
+  if (opts.entry.length < 1) {
     throw new Error('Entry file path is required and cannot be empty');
   }
 
@@ -37,10 +36,6 @@ async function parseCompilerOptions(opts: CompilerOptions) {
     (opts.maxConcurrency < 1 || opts.maxConcurrency > MAX_CONCURRENCY)
   ) {
     throw new Error(`maxConcurrency must be between 1 and ${MAX_CONCURRENCY}`);
-  }
-
-  if (!(await exists(opts.entry))) {
-    throw new Error(`Entry file not found: ${opts.entry}`);
   }
 
   const targets = opts.targets?.filter((target) => isValidTarget(target)) || [];

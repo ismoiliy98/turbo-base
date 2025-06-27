@@ -8,7 +8,7 @@ export type LinuxMuslTarget = `${LinuxTarget}-musl`;
 export type SupportedTarget = Target | LinuxMuslTarget;
 
 export interface BaseCompilerOptions {
-  readonly entry: string;
+  readonly entry: string[];
   readonly outFilePrefix: string;
   readonly outDir: string;
   readonly minify: boolean;
@@ -17,7 +17,7 @@ export interface BaseCompilerOptions {
 }
 
 export interface CompilerOptions extends Partial<BaseCompilerOptions> {
-  readonly entry: string;
+  readonly entry: string[];
   readonly targets?: readonly SupportedTarget[];
   readonly maxConcurrency?: number;
   readonly cleanOutDir?: boolean;

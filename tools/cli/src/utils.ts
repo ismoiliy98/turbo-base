@@ -59,15 +59,13 @@ export function getStandardTargets() {
 }
 
 export async function isMusl() {
+  if (process.platform !== 'linux') {
+    return false;
+  }
+
   try {
-    const result = await Bun.$`ldd --version`.quiet().nothrow();
-
-    if (result.exitCode !== 0) {
-      return false;
-    }
-
-    const output = result.stdout.toString().toLowerCase();
-    return output.includes('musl');
+    const { stderr, stdout } = await Bun.$`ldd --version`.nothrow().quiet();
+    return `${stderr}${stdout}`.toLowerCase().includes('musl');
   } catch {
     return false;
   }

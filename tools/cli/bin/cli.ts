@@ -12,7 +12,7 @@ import { getAvailableTargets, getCurrentPlatformTarget } from '../src/utils';
 const program = new Command('tool-cli');
 const availableTargets = getAvailableTargets();
 
-function customIntParses(value: string) {
+function intParser(value: string) {
   const parsedValue = Number.parseInt(value, 10);
 
   if (Number.isNaN(parsedValue)) {
@@ -44,7 +44,7 @@ program
       'Max concurrent compilation processes when multiple targets specified'
     )
       .default(4)
-      .argParser(customIntParses)
+      .argParser(intParser)
   )
   .action(async (entry, options) => {
     const targets: SupportedTarget[] = [];

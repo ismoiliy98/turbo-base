@@ -43,13 +43,16 @@ async function parseCompilerOptions(opts: CompilerOptions) {
     throw new Error(`Entry file not found: ${opts.entry}`);
   }
 
-  let targets = opts.targets?.filter((target) => isValidTarget(target));
+  const targets = opts.targets?.filter((target) => isValidTarget(target)) || [];
 
   if (!targets?.length) {
-    targets = await getPreferredTargets();
+    targets.push(...(await getPreferredTargets()));
   }
 
-  return defu({ ...opts, targets }, COMPILER_DEFAULT_OPTIONS);
+  return defu(
+    { ...opts, targets: [...new Set(targets)] },
+    COMPILER_DEFAULT_OPTIONS
+  );
 }
 
 export async function compile(opts: CompilerOptions): Promise<CompilerResult> {

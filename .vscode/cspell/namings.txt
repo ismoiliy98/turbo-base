@@ -1,3 +1,4 @@
+buildx
 commitlint
 consola
 defu
@@ -5,6 +6,7 @@ elysia
 elysiajs
 fontsource
 lefthook
+rolldown
 shadcn
 sonner
 tanstack

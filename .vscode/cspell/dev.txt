@@ -2,8 +2,11 @@ addgroup
 adduser
 archs
 bunx
+cacheonly
 commitlintrc
 knip
 libc
 libstdc
 nothrow
+pipefail
+startswith

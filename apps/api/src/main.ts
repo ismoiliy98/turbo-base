@@ -4,10 +4,10 @@ import env from '~/utils/env';
 import PingModule from '#/ping';
 
 async function bootstrap() {
-  const app = new Elysia()
+  const app = new Elysia({ prefix: '/api' })
     .use(env)
-    .use(swaggerPlugin({ path: '/api/docs' }))
-    .group('/api', (app) => app.use(PingModule));
+    .use(swaggerPlugin({ path: '/docs' }))
+    .use(PingModule);
 
   const { HOST: hostname, PORT: port } = app.decorator.env;
 

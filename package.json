@@ -37,11 +37,11 @@
         "react-dom": "^19.1.0"
       },
       "tooling": {
-        "@types/bun": "^1.2.16",
-        "@types/node": "^24.0.3",
+        "@types/bun": "^1.2.17",
+        "@types/node": "^24.0.8",
         "tailwindcss": "^3.4.17",
         "typescript": "^5.8.3",
-        "vite": "^6.3.5"
+        "vite": "npm:rolldown-vite@latest"
       }
     }
   },
@@ -57,7 +57,11 @@
     "packages:check": "bun packages:sort -c && bunx sherif@latest",
     "packages:fix": "bun packages:sort && bunx sherif@latest --fix",
     "packages:sort": "bunx sort-package-json@latest \"apps/*/package.json\" \"packages/*/package.json\" \"tools/*/package.json\" \"package.json\"",
+    "ts:check": "turbo ts:check --continue",
     "ui:add": "turbo ui:add"
+  },
+  "overrides": {
+    "vite": "catalog:tooling"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -69,9 +73,9 @@
     "turbo": "^2.5.4",
     "typescript": "catalog:tooling"
   },
-  "packageManager": "bun@1.2.16",
+  "packageManager": "bun@1.2.17",
   "engines": {
-    "bun": "1.2.16",
+    "bun": "1.2.17",
     "vscode": "^1.22.0"
   },
   "trustedDependencies": [

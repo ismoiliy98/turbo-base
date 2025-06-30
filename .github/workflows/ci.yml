@@ -1,0 +1,135 @@
+name: CI
+
+on:
+  push:
+    branches: [main, stage, test]
+  pull_request:
+    branches: [main, stage, test]
+    types: [opened, synchronize]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: >-
+    ${{ contains('["main", "stage", "test"]', github.ref_name) }}
+
+env:
+  TURBO_TEAM: github/${{ github.ref_name }}
+  TURBO_API: ${{ secrets.TURBO_API }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_REMOTE_CACHE_SIGNATURE_KEY: ${{ secrets.TURBO_TOKEN }}
+  IMAGES_REGISTRY: ghcr.io/${{ github.repository }}
+
+jobs:
+  lints:
+    name: Lint ${{ matrix.linter }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        linter: [packages, knip, ts, biome]
+        include:
+          - linter: ts
+            turbo: true
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Bun.js
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Run ${{ matrix.linter }} (turbo) linter
+        if: matrix.turbo
+        run: bun turbo ${{ matrix.linter }}:check --affected
+
+      - name: Run ${{ matrix.linter }} linter
+        if: matrix.turbo != true
+        run: bun ${{ matrix.linter }}:check
+
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      include: ${{ steps.matrix.outputs.include }}
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set turbo version
+        id: turbo
+        run: |
+          TURBO_VERSION="$(grep '"turbo":' package.json |
+            sed -E 's/.*"turbo": "([^"]+)".*/\1/')"
+          if [ -z "$TURBO_VERSION" ]; then
+            echo "Turbo package is not defined in package.json"
+            exit 1
+          fi
+          install -D <(echo "$TURBO_VERSION") ./_tmp/turbo_version
+          echo "version=$TURBO_VERSION" >>$GITHUB_OUTPUT
+
+      - name: Setup Bun.js
+        uses: oven-sh/setup-bun@v2
+
+      - name: Determine affected apps
+        id: matrix
+        env:
+          TURBO_VERSION: ${{ steps.turbo.outputs.version }}
+          APP_EVENT: ${{ github.event_name }}
+          APP_BRANCH: ${{ github.ref_name }}
+        shell: bash
+        run: |
+          bun install -g turbo@$TURBO_VERSION node-jq
+          ./.github/scripts/prepare.sh >>$GITHUB_OUTPUT
+
+  build:
+    name: ${{ matrix.release && 'Release' || 'Build' }} - ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: [prepare, lints]
+    if: needs.prepare.outputs.include != '[]'
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.prepare.outputs.include) }}
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up docker buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Set up docker qemu
+        uses: docker/setup-qemu-action@v3
+
+      - name: Build and ${{ matrix.release == true && 'Release' || 'Cache' }}
+        uses: docker/build-push-action@v6
+        with:
+          file: ${{ matrix.dockerfile }}
+          context: .
+          secrets: |
+            TURBO_TEAM=github/${{ github.ref_name }}
+            TURBO_API=${{ env.TURBO_API }}
+            TURBO_TOKEN=${{ env.TURBO_TOKEN }}
+          tags: ${{ matrix.tags }}
+          outputs: ${{ matrix.release && 'type=registry' || 'type=cacheonly' }}
+          push: ${{ matrix.release }}
+          platforms: linux/amd64,linux/arm64
+          cache-to: |
+            type=gha,scope=${{ matrix.name }}-${{matrix.version}},mode=min
+            type=gha,scope=${{ matrix.name }},mode=min
+          cache-from: |
+            type=gha,scope=${{ matrix.name }}-${{matrix.version}}
+            type=gha,scope=${{ matrix.name }}

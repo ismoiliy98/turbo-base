@@ -1,6 +1,7 @@
 addgroup
 adduser
 archs
+argjson
 bunx
 cacheonly
 commitlintrc

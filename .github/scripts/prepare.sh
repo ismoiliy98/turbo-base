@@ -15,7 +15,7 @@ if ! mapfile -t app_paths < <(
   exit 1
 fi
 
-json='['
+apps_json=()
 
 for app_path in "${app_paths[@]}"; do
   app_json="$app_path/package.json"
@@ -32,26 +32,26 @@ for app_path in "${app_paths[@]}"; do
 
   if [[ "$APP_EVENT" != 'pull_request' ]]; then
     git diff HEAD^ HEAD -- "$app_json" |
-      grep '"version":' &>/dev/null && release='true' &&
-      echo "Version bump detected in $app_name"
+      grep '"version":' &>/dev/null && release='true'
     app_img="$IMAGES_REGISTRY/$(echo "$app_name" |
       sed 's|@||g' |
       tr '/' '-' |
       tr '[:upper:]' '[:lower:]')"
     app_tags="$app_img:$app_version-$APP_BRANCH,$app_img:$APP_BRANCH"
 
-    if [[ "$APP_BRANCH" == 'main' ]]; then
+    [[ "$APP_BRANCH" == 'main' ]] &&
       app_tags="$app_img:$app_version,$app_img:latest"
-    fi
   fi
 
-  json+="{ \
-    \"name\": \"$app_name\", \
-    \"tags\": \"$app_tags\", \
-    \"version\": \"$app_version\", \
-    \"dockerfile\": \"$app_dockerfile\", \
-    \"release\": $release
-  },"
+  apps_json+=("$(jq -nc \
+    --arg name "$app_name" \
+    --arg tags "$app_tags" \
+    --arg version "$app_version" \
+    --arg dockerfile "$app_dockerfile" \
+    --argjson release "$release" \
+    '{name: $name, tags: $tags, version: $version,
+    dockerfile: $dockerfile, release: $release}')")
 done
 
-printf "include=%s\n" "${json%,}]"
+json_input=$(printf "%s\n" "${apps_json[@]}")
+echo "include=$(jq -sc . <<<"$json_input")"

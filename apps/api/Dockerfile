@@ -44,7 +44,7 @@ ENV DO_NOT_TRACK='1' \
 RUN apk add --no-cache libstdc++ && \
   addgroup --system --gid 1000 bun && adduser --system --uid 1000 bun
 COPY --from=build --chown=bun:bun \
-  /app/apps/api/dist/entry-bun-linux-arm64-musl ./entry
+  /app/apps/api/dist/entry-* ./entry
 USER bun
 EXPOSE ${PORT}
 CMD ["./entry"]

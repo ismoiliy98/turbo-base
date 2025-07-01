@@ -6,7 +6,7 @@
       "project": ["**/*.{ts,tsx,json}"]
     },
     "apps/api": {
-      "entry": ["src/main.ts", "scripts/build.ts"],
+      "entry": ["src/main.ts"],
       "project": ["**/*.{ts,tsx,json}"]
     },
     "apps/web": {
@@ -17,5 +17,6 @@
     "tools/*": { "project": ["**/*.{ts,tsx,json}"] }
   },
   "cspell": { "config": ".vscode/cspell.json" },
-  "commitlint": { "config": ".config/commitlintrc.yaml" }
+  "commitlint": { "config": ".config/commitlintrc.yaml" },
+  "ignoreDependencies": ["lefthook"]
 }

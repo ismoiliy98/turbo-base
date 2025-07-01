@@ -1,6 +1,18 @@
 name: CI
 
 on:
+  workflow_dispatch:
+    inputs:
+      force-build:
+        description: Force build all apps
+        required: false
+        type: boolean
+        default: false
+      force-release:
+        description: Force release built apps
+        required: false
+        type: boolean
+        default: false
   push:
     branches: [main, stage, test]
   pull_request:
@@ -82,6 +94,8 @@ jobs:
           TURBO_VERSION: ${{ steps.turbo.outputs.version }}
           APP_EVENT: ${{ github.event_name }}
           APP_BRANCH: ${{ github.ref_name }}
+          FORCE_BUILD: ${{ inputs.force-build }}
+          FORCE_RELEASE: ${{ inputs.force-release }}
         shell: bash
         run: |
           bun install -g turbo@$TURBO_VERSION node-jq

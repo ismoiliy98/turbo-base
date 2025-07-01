@@ -1,9 +1,15 @@
 #!/bin/bash
 
+FORCE_BUILD="$(echo "$FORCE_BUILD" | tr '[:upper:]' '[:lower:]')"
+
+case "$FORCE_BUILD" in
+true) FILTER="@app/*" ;;
+*) FILTER="@app/*...[HEAD^1]" ;;
+esac
+
 if ! mapfile -t app_paths < <(
   turbo --no-update-notifier --skip-infer build --only \
-    --filter '...[HEAD^]' --dry-run json |
-    jq -r '.packages[] | select(startswith("@app")) | sub("^@app"; "apps")'
+    --filter="$FILTER" --dry-run json | jq -r '.tasks[].directory'
 ); then
   printf 'Error: Failed to read packages\n' >&2
   exit 1
@@ -22,11 +28,12 @@ for app_path in "${app_paths[@]}"; do
     continue
   fi
 
-  release='false'
+  release="$FORCE_RELEASE"
 
   if [[ "$APP_EVENT" != 'pull_request' ]]; then
     git diff HEAD^ HEAD -- "$app_json" |
-      grep '"version":' &>/dev/null && release='true'
+      grep '"version":' &>/dev/null && release='true' &&
+      echo "Version bump detected in $app_name"
     app_img="$IMAGES_REGISTRY/$(echo "$app_name" |
       sed 's|@||g' |
       tr '/' '-' |
@@ -43,8 +50,8 @@ for app_path in "${app_paths[@]}"; do
     \"tags\": \"$app_tags\", \
     \"version\": \"$app_version\", \
     \"dockerfile\": \"$app_dockerfile\", \
-    \"release\": $release,
+    \"release\": $release
   },"
 done
 
-echo "include=${json%,}]"
+printf "include=%s\n" "${json%,}]"

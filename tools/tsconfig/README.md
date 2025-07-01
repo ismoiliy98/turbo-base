@@ -1,100 +1,259 @@
 # 🛠️ @tool/tsconfig
 
-A collection of shared TypeScript configurations for the Turbo Base monorepo (turborepo). 🚀
+A collection of shared TypeScript configurations for the Turbo Base monorepo, providing standardized compilation settings across all packages and applications. 🚀
 
 ## 📖 Overview
 
-This internal tooling package provides standardized TypeScript configurations that can be extended by different packages and applications within the monorepo.
+This internal tooling package provides standardized TypeScript configurations that can be extended by different packages and applications within the monorepo. It includes framework-specific presets with optimized compilation settings and strong type safety defaults.
 
 ## ⚙️ Available Configurations
 
 ### 📋 Base Configuration
 
-`base.tsconfig.json`
+`base.tsconfig.json` - Foundation configuration for all TypeScript projects
 
-The foundation configuration that sets up common TypeScript settings:
+```json
+{
+  "extends": "@tool/tsconfig/base.tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"]
+}
+```
 
-- 📦 **Module System**
-  - ESNext target with bundler-based module resolution
-  - JSON module support
-  - Synthetic default imports allowed
-  - TypeScript extensions import support
+**Features:**
 
-- 🛡️ **Type Safety**
-  - Strict mode with null checks
-  - No implicit any/returns/overrides
-  - Unused locals and parameters checking
-  - Consistent file casing enforced
-
-- 🔧 **Build Options**
-  - Incremental compilation
-  - No declaration files
-  - JavaScript files allowed
-  - Skip library checks for better performance
+- **Module System**: ESNext target with bundler-based module resolution
+- **JSON Support**: Resolve JSON modules with full type safety
+- **Import Flexibility**: Synthetic default imports and TypeScript extensions
+- **Build Performance**: Incremental compilation with optimized caching
+- **Type Safety**: Strict mode with comprehensive null checks
+- **Development**: No emit mode with pretty printing enabled
 
 ### ⚛️ React Configuration
 
-`react.tsconfig.json`
+`react.tsconfig.json` - Extends base with React-specific settings
 
-Extends the base configuration with React-specific settings:
+```json
+{
+  "extends": "@tool/tsconfig/react.tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"]
+}
+```
 
-- React JSX transform support
-- Class fields definition behavior
-- DOM and DOM.Iterable type definitions
+**Features:**
+
+- Extends the base configuration
+- **JSX Transform**: Modern React JSX transform (`react-jsx`)
+- **Class Fields**: `useDefineForClassFields` for proper class behavior
+- **DOM Types**: ES2022, DOM, and DOM.Iterable type definitions
+- **React Optimized**: Configured for React 19+ development patterns
 
 ### 🟢 Bun Configuration
 
-`bun.tsconfig.json`
+`bun.tsconfig.json` - Extends base with Bun.js and Node.js settings
 
-Extends the base configuration with Bun.js settings:
+```json
+{
+  "extends": "@tool/tsconfig/bun.tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"]
+}
+```
 
-- Node.js type definitions
-- Bun runtime type support
+**Features:**
 
-## Usage
+- Extends the base configuration
+- **Runtime Types**: Node.js and Bun runtime type definitions
+- **Server Optimized**: Configured for backend services and CLI tools
+- **Cross-Platform**: Works with both Bun and Node.js environments
 
-1. Add the package to your project's dev dependencies:
+## 🚀 Usage Examples
 
-    ```json
-    {
-      "devDependencies": {
-        "@tool/tsconfig": "workspace:*"
-      }
+### 📦 Installation
+
+Add the package to your project's dev dependencies:
+
+```json
+{
+  "devDependencies": {
+    "@tool/tsconfig": "workspace:*"
+  }
+}
+```
+
+### 🌐 Web Application (React)
+
+```json
+{
+  "extends": "@tool/tsconfig/react.tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
     }
-    ```
+  },
+  "include": [
+    "src/**/*",
+    "vite.config.ts"
+  ],
+  "exclude": ["dist", "node_modules"]
+}
+```
 
-2. Extend the appropriate configuration in your `tsconfig.json`:
+### 🖥️ Backend Service (Bun/Node)
 
-    - For `React` applications:
-
-    ```json
-    {
-      "extends": "@tool/tsconfig/react.tsconfig.json",
-      "compilerOptions": {
-        "rootDir": "src",
-        "outDir": "dist"
-      },
-      "include": ["src/**/*"]
+```json
+{
+  "extends": "@tool/tsconfig/bun.tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
     }
-    ```
+  },
+  "include": ["src/**/*"],
+  "exclude": ["dist", "tests", "node_modules"]
+}
+```
 
-    - For `Bun (or Node)` services:
+### 📚 Package Library
 
-    ```json
-    {
-      "extends": "@tool/tsconfig/bun.tsconfig.json",
-      "compilerOptions": {
-        "rootDir": "src",
-        "outDir": "dist"
-      },
-      "include": ["src/**/*"]
-    }
-    ```
+```json
+{
+  "extends": "@tool/tsconfig/base.tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["dist", "tests"]
+}
+```
 
-## Key Benefits
+## 🏗️ Architecture
 
-- 🎯 Standardized configurations across packages
-- 🔒 Strong type safety defaults
-- ⚡️ Optimized build settings
-- 📦 Framework-specific optimizations
-- 🔄 Consistent module resolution
+### 📁 Project Structure
+
+```sh
+tools/tsconfig/
+├── base.tsconfig.json     # Foundation configuration
+├── react.tsconfig.json    # React-specific preset
+├── bun.tsconfig.json      # Bun/Node.js preset  
+├── package.json           # Package configuration
+└── README.md              # Documentation
+```
+
+### 🔧 Configuration Hierarchy
+
+```sh
+Base Configuration (base.tsconfig.json)
+├── ESNext target with bundler module resolution
+├── Strict type checking with null safety
+├── Incremental compilation with caching
+├── JSON module support
+│
+├── React Configuration (react.tsconfig.json)
+│   ├── Extends base configuration
+│   ├── React JSX transform support
+│   ├── DOM type definitions
+│   └── Class fields definition behavior
+│
+└── Bun Configuration (bun.tsconfig.json)
+    ├── Extends base configuration
+    ├── Node.js type definitions
+    └── Bun runtime type support
+```
+
+## 🛡️ Type Safety Features
+
+The configurations provide comprehensive type safety:
+
+**Strict Mode Settings:**
+
+- `strict: true` - Enable all strict type checking options
+- `noImplicitAny: true` - Disallow implicit any types
+- `noImplicitReturns: true` - Require explicit return statements
+- `noImplicitOverride: true` - Require explicit override keywords
+- `noUnusedLocals: true` - Report unused local variables
+- `noUnusedParameters: true` - Report unused function parameters
+- `forceConsistentCasingInFileNames: true` - Enforce consistent file naming
+
+## 🚀 Performance Features
+
+### ⚡ Build Optimization
+
+- **Incremental Compilation**: Fast rebuilds with `.tsbuildinfo` caching
+- **Skip Lib Check**: Skip type checking of declaration files for speed
+- **Isolated Modules**: Each file can be transpiled independently
+- **Module Detection**: Force module detection for better tree shaking
+
+### 📊 Development Experience
+
+- **Pretty Output**: Enhanced error messages and formatting
+- **Source Maps**: Full debugging support with sourcemap generation
+- **Import Extensions**: TypeScript file imports with extensions
+- **JSON Modules**: Direct JSON file imports with type safety
+
+## 🔧 Development
+
+### 📋 Scripts
+
+```bash
+# Type check all configuration files
+bun run ts:check
+
+# Clean build artifacts and dependencies
+bun run clean
+```
+
+### 🧪 Testing Configurations
+
+```bash
+# Test base configuration
+bunx tsc --noEmit --project base.tsconfig.json
+
+# Test React configuration  
+bunx tsc --noEmit --project react.tsconfig.json
+
+# Test Bun configuration
+bunx tsc --noEmit --project bun.tsconfig.json
+```
+
+## 📚 Dependencies
+
+### ⚙️ Development Dependencies
+
+- **TypeScript** - Core TypeScript compiler and type system
+- **@types/bun** - Bun runtime type definitions
+- **@types/node** - Node.js runtime type definitions
+
+## 🤝 Contributing
+
+When contributing to the TypeScript configurations:
+
+1. **Compatibility** - Ensure configurations work across all supported environments
+2. **Performance** - Consider compilation speed and development experience
+3. **Type Safety** - Maintain strict type checking without being overly restrictive
+4. **Documentation** - Update this README for configuration changes
+5. **Testing** - Test configurations with real projects in the monorepo
+
+## 📄 License
+
+This tool is part of the Turbo Base monorepo and follows the same license terms.

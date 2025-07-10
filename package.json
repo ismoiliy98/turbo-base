@@ -66,7 +66,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@commitlint/config-conventional": "^19.8.1",
-    "@cspell/dict-ru_ru": "^2.3.0",
+    "@cspell/dict-ru_ru": "^2.3.1",
     "@types/bun": "catalog:tooling",
     "@types/node": "catalog:tooling",
     "lefthook": "^1.12.1",

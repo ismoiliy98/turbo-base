@@ -64,7 +64,7 @@
     "vite": "catalog:tooling"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.2.2",
     "@commitlint/config-conventional": "^19.8.1",
     "@cspell/dict-ru_ru": "^2.3.2",
     "@types/bun": "catalog:tooling",

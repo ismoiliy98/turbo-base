@@ -1,4 +1,4 @@
-FROM oven/bun:1.2.21-alpine AS base
+FROM oven/bun:1.2.22-alpine AS base
 WORKDIR /app
 COPY package.json .
 RUN apk add --no-cache libc6-compat && \
@@ -36,7 +36,7 @@ RUN --mount=type=secret,id=TURBO_API \
 
 # ==============================================================================
 
-FROM oven/bun:1.2.21-alpine
+FROM oven/bun:1.2.22-alpine
 WORKDIR /app
 ENV DO_NOT_TRACK='1' \
   NODE_ENV='production' \

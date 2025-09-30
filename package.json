@@ -69,7 +69,7 @@
     "@cspell/dict-ru_ru": "^2.3.2",
     "@types/bun": "catalog:tooling",
     "@types/node": "catalog:tooling",
-    "lefthook": "^1.13.5",
+    "lefthook": "^1.13.6",
     "turbo": "^2.5.8",
     "typescript": "catalog:tooling"
   },

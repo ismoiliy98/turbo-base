@@ -24,5 +24,10 @@
       "/(^|/)package\\.json\\.hbs$/"
     ]
   },
-  "ignoreDeps": ["vscode"]
+  "ignoreDeps": ["vscode"],
+  "postUpgradeTasks": {
+    "commands": ["bun install"],
+    "fileFilters": ["bun.lock"],
+    "executionMode": "update"
+  }
 }

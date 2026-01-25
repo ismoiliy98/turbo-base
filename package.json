@@ -70,7 +70,7 @@
     "@types/bun": "catalog:tooling",
     "@types/node": "catalog:tooling",
     "lefthook": "^1.13.6",
-    "turbo": "^2.5.8",
+    "turbo": "^2.7.6",
     "typescript": "catalog:tooling"
   },
   "packageManager": "bun@1.2.17",

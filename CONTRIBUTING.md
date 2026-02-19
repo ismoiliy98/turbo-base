@@ -28,7 +28,7 @@ This project adheres to a code of conduct that we expect all contributors to fol
 
 Before contributing, ensure you have the following installed:
 
-- **[Bun](https://bun.sh/)** >= 1.2.17
+- **[Bun](https://bun.sh/)** >= 1.3.9
 - **Node.js** >= 18 (for compatibility)
 - **Git** for version control
 - **Docker** (optional, for container testing)

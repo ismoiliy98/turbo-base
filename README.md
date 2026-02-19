@@ -158,7 +158,7 @@ turbo-base/
 
 ### Prerequisites
 
-- **[Bun](https://bun.sh/)** >= 1.2.17
+- **[Bun](https://bun.sh/)** >= 1.3.9
 - **Node.js** >= 18 (for compatibility)
 - **Git** for version control
 

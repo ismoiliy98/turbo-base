@@ -19,7 +19,7 @@
     "@tool/tsconfig": "workspace:",
     "@types/bun": "catalog:tooling",
     "@types/node": "catalog:tooling",
-    "commander": "^14.0.0",
+    "commander": "^14.0.3",
     "consola": "^3.4.2",
     "defu": "^6.1.4",
     "typescript": "catalog:tooling"

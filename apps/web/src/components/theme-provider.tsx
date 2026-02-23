@@ -1,14 +1,16 @@
-import { DEFAULT_THEME, type Theme } from '@pkg/ui/theme';
 import { useRouter } from '@tanstack/react-router';
-import { type PropsWithChildren, createContext, use } from 'react';
+import { createContext, type PropsWithChildren, use } from 'react';
+
+import { DEFAULT_THEME, type Theme } from '@pkg/ui/theme';
+
 import { setThemeServerFn } from '~/lib/theme';
 
 type ThemeProviderState = { theme: Theme; setTheme: (val: Theme) => void };
 type ThemeProviderProps = PropsWithChildren<{ theme: Theme }>;
 
 const initialState: ThemeProviderState = {
-  theme: DEFAULT_THEME,
   setTheme: (val: Theme) => setThemeServerFn({ data: val }),
+  theme: DEFAULT_THEME,
 };
 const ThemeProviderContext = createContext(initialState);
 
@@ -19,7 +21,7 @@ export function ThemeProvider({ theme, ...props }: ThemeProviderProps) {
     setThemeServerFn({ data }).then(() => router.invalidate());
   }
 
-  return <ThemeProviderContext {...props} value={{ theme, setTheme }} />;
+  return <ThemeProviderContext {...props} value={{ setTheme, theme }} />;
 }
 
 export function useTheme() {

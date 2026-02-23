@@ -1,7 +1,8 @@
 import { Elysia } from 'elysia';
+
+import PingModule from '#/ping';
 import { swaggerPlugin } from '~/libs/swagger';
 import env from '~/utils/env';
-import PingModule from '#/ping';
 
 async function bootstrap() {
   const app = new Elysia({ prefix: '/api' })

@@ -1,4 +1,5 @@
-import { Separator, checkbox } from '@inquirer/prompts';
+import { checkbox, Separator } from '@inquirer/prompts';
+
 import { SUPPORTED_PLATFORMS } from './constants';
 import type { SupportedTarget } from './types';
 import { getCurrentPlatformTarget, getTargetsByPlatform } from './utils';
@@ -50,11 +51,11 @@ export async function getPreferredTargets() {
 
   try {
     return await checkbox<SupportedTarget>({
-      message: 'Select targets to compile for',
+      choices,
       loop: false,
+      message: 'Select targets to compile for',
       pageSize: Math.min(choices.length, 10),
       required: true,
-      choices,
     });
   } catch (error) {
     if (error instanceof Error && error.name === 'ExitPromptError') {

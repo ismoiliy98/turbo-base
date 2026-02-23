@@ -1,6 +1,7 @@
 import type { PathLike } from 'node:fs';
 import { exists, mkdir, rm } from 'node:fs/promises';
 import { consola } from 'consola';
+
 import { SUPPORTED_ARCHS, SUPPORTED_PLATFORMS } from './constants';
 import type {
   LinuxMuslTarget,
@@ -99,7 +100,7 @@ export async function cleanDir(dir: PathLike, throwOnError = false) {
 
   try {
     if (await exists(dir)) {
-      await rm(dir, { recursive: true, force: true });
+      await rm(dir, { force: true, recursive: true });
     }
   } catch (error) {
     consola.warn(`Failed to clean ${dir}:`, error);

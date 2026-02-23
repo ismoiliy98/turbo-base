@@ -1,44 +1,69 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true,
-    "defaultBranch": "main"
-  },
-  "files": { "ignoreUnknown": false, "ignore": ["package.json", "*.gen.ts"] },
-  "organizeImports": { "enabled": true },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "correctness": { "noUnusedImports": "warn" },
-      "style": { "useImportType": "warn", "useExportType": "warn" },
-      "a11y": { "useSemanticElements": "off", "useKeyWithClickEvents": "off" },
-      "nursery": {
-        "useSortedClasses": {
-          "level": "error",
-          "fix": "safe",
+  "$schema": "https://biomejs.dev/schemas/latest/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "noDuplicateClasses": "on",
+        "organizeImports": {
+          "level": "on",
           "options": {
-            "attributes": ["className"],
-            "functions": ["clsx", "cva", "tw", "cn"]
+            "groups": [
+              [
+                ":BUN:",
+                ":NODE:",
+                ":PACKAGE:",
+                "!@pkg/**",
+                "!@app/**",
+                "!@tool/**"
+              ],
+              ":BLANK_LINE:",
+              ["@pkg/**", "@app/**", "@tool/**"],
+              ":BLANK_LINE:",
+              ":ALIAS:",
+              ":BLANK_LINE:",
+              ":PATH:"
+            ]
           }
-        }
+        },
+        "useSortedAttributes": "on",
+        "useSortedInterfaceMembers": "on",
+        "useSortedKeys": "on"
       }
     }
   },
+  "files": { "includes": ["**", "!**/*.gen.ts"] },
   "formatter": {
-    "enabled": true,
+    "expand": "never",
     "formatWithErrors": true,
-    "indentStyle": "space",
-    "lineEnding": "lf"
+    "indentStyle": "space"
   },
   "javascript": {
-    "formatter": {
-      "trailingCommas": "es5",
-      "semicolons": "always",
-      "quoteStyle": "single"
+    "formatter": { "quoteStyle": "single", "trailingCommas": "es5" }
+  },
+  "linter": {
+    "domains": { "project": "recommended", "turborepo": "all", "types": "all" },
+    "rules": {
+      "correctness": { "noUnusedImports": { "fix": "safe", "level": "warn" } }
     }
   },
-  "css": { "formatter": { "enabled": true } }
+  "overrides": [
+    {
+      "assist": { "actions": { "source": { "useSortedKeys": "off" } } },
+      "includes": [
+        ".config/**",
+        ".vscode/**",
+        ".github/**",
+        "**/biome.json",
+        "**/package.json",
+        "**/*tsconfig.json"
+      ]
+    },
+    { "formatter": { "expand": "always" }, "includes": ["**/package.json"] }
+  ],
+  "vcs": {
+    "clientKind": "git",
+    "defaultBranch": "main",
+    "enabled": true,
+    "useIgnoreFile": true
+  }
 }

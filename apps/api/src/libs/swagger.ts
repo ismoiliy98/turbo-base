@@ -1,5 +1,6 @@
 import { type ElysiaSwaggerConfig, swagger } from '@elysiajs/swagger';
 import { defu } from 'defu';
+
 import { version } from '~/../package.json';
 
 const DEFAULT_OPTIONS = {

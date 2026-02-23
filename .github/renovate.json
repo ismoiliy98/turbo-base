@@ -5,21 +5,10 @@
   "rangeStrategy": "bump",
   "automerge": true,
   "packageRules": [
-    {
-      "enabled": false,
-      "matchPackageNames": ["/^@pkg//"]
-    },
-    {
-      "groupName": "internal apps",
-      "matchPackageNames": ["/^@app//"]
-    },
-    {
-      "groupName": "internal tools",
-      "matchPackageNames": ["/^@tool//"]
-    }
+    { "enabled": false, "matchPackageNames": ["/^@pkg//"] },
+    { "groupName": "internal apps", "matchPackageNames": ["/^@app//"] },
+    { "groupName": "internal tools", "matchPackageNames": ["/^@tool//"] }
   ],
-  "bun": {
-    "managerFilePatterns": ["/(^|/)package\\.json\\.hbs$/"]
-  },
+  "bun": { "managerFilePatterns": ["/(^|/)package\\.json\\.hbs$/"] },
   "ignoreDeps": ["vscode"]
 }

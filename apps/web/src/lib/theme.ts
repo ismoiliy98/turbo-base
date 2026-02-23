@@ -1,6 +1,7 @@
-import { DEFAULT_THEME, type Theme } from '@pkg/ui/theme';
 import { createServerFn } from '@tanstack/react-start';
 import { getCookie, setCookie } from '@tanstack/react-start/server';
+
+import { DEFAULT_THEME, type Theme } from '@pkg/ui/theme';
 
 const storageKey = 'ui-theme';
 

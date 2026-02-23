@@ -1,3 +1,5 @@
+.claude/settings.local.json
+.claude/worktrees/
 .DS_Store
 .env*
 !.env.sample
@@ -5,6 +7,7 @@
 .output
 .tanstack
 .turbo
+CLAUDE.local.md
 dist
 node_modules
 out

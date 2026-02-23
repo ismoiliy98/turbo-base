@@ -1,6 +1,7 @@
-import { Button } from '@pkg/ui/button';
 import { useRouter } from '@tanstack/react-router';
 import { ArrowLeftIcon } from 'lucide-react';
+
+import { Button } from '@pkg/ui/button';
 
 export default function NotFound() {
   const router = useRouter();
@@ -21,8 +22,8 @@ export default function NotFound() {
           Go back
         </Button>
         <Button
+          onClick={() => router.navigate({ replace: true, to: '/' })}
           variant="secondary"
-          onClick={() => router.navigate({ to: '/', replace: true })}
         >
           Take me home
         </Button>

@@ -27,14 +27,10 @@
     "tsBuildInfoFile": "${configDir}/node_modules/.cache/.tsbuildinfo",
 
     "strict": true,
-    "noImplicitAny": true,
     "noUnusedLocals": true,
-    "strictNullChecks": true,
     "noImplicitReturns": true,
     "noImplicitOverride": true,
     "noUnusedParameters": true,
-    "strictBindCallApply": true,
-    "noFallthroughCasesInSwitch": false,
     "noUncheckedSideEffectImports": true,
     "forceConsistentCasingInFileNames": true
   },

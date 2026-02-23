@@ -1,3 +1,5 @@
+import '~/assets/tailwind.css';
+
 import {
   HeadContent,
   Outlet,
@@ -5,8 +7,9 @@ import {
   useLoaderData,
 } from '@tanstack/react-router';
 import type { ReactNode } from 'react';
-import '~/assets/tailwind.css';
+
 import { cn } from '@pkg/ui';
+
 import { Header } from '~/components/header';
 import { ThemeProvider, useTheme } from '~/components/theme-provider';
 
@@ -15,8 +18,8 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 
   return (
     <html
-      lang="en"
       className={theme}
+      lang="en"
       style={{ backgroundColor: theme === 'dark' ? '#333' : '#eee' }}
     >
       <head>

@@ -1,5 +1,6 @@
 {
   "$schema": "https://unpkg.com/knip/schema.json",
+  "ignoreDependencies": ["lefthook"],
   "ignoreWorkspaces": ["packages/shared"],
   "workspaces": {
     "{apps,packages}/*": {
@@ -11,5 +12,6 @@
     "tools/*": { "project": ["**/*.{ts,tsx,json}"] }
   },
   "cspell": { "config": ".vscode/cspell.json" },
-  "commitlint": { "config": ".config/commitlintrc.yaml" }
+  "commitlint": { "config": ".config/commitlintrc.yaml" },
+  "lefthook": { "config": ".config/lefthook.yaml" }
 }

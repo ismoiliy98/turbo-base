@@ -40,6 +40,7 @@
     "packages:check": "bun packages:sort -c && bunx sherif@latest",
     "packages:fix": "bun packages:sort && bunx sherif@latest --fix",
     "packages:sort": "bunx sort-package-json@latest \"apps/*/package.json\" \"packages/*/package.json\" \"tools/*/package.json\" \"package.json\"",
+    "transit": "exit 0",
     "ts:check": "turbo ts:check --continue",
     "ui:add": "turbo ui:add"
   },
@@ -47,7 +48,7 @@
     "vite": "catalog:tooling"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "^2.4.4",
     "@commitlint/config-conventional": "^20.4.2",
     "@cspell/dict-ru_ru": "^2.3.2",
     "@types/bun": "catalog:tooling",

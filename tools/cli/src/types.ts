@@ -8,42 +8,42 @@ export type LinuxMuslTarget = `${LinuxTarget}-musl`;
 export type SupportedTarget = Target | LinuxMuslTarget;
 
 export interface BaseCompilerOptions {
-  readonly entry: string[];
-  readonly outFilePrefix: string;
-  readonly outDir: string;
-  readonly minify: boolean;
-  readonly sourcemap: boolean;
   readonly bytecode: boolean;
+  readonly entry: string[];
+  readonly minify: boolean;
+  readonly outDir: string;
+  readonly outFilePrefix: string;
+  readonly sourcemap: boolean;
 }
 
 export interface CompilerOptions extends Partial<BaseCompilerOptions> {
-  readonly entry: string[];
-  readonly targets?: readonly SupportedTarget[];
-  readonly maxConcurrency?: number;
   readonly cleanOutDir?: boolean;
+  readonly entry: string[];
+  readonly maxConcurrency?: number;
+  readonly targets?: readonly SupportedTarget[];
 }
 
 export interface CompilationResult {
-  readonly target: SupportedTarget;
-  readonly success: boolean;
-  readonly error?: string;
   readonly duration: number;
+  readonly error?: string;
   readonly outFile: string;
+  readonly success: boolean;
+  readonly target: SupportedTarget;
 }
 
 export interface CompilerResult {
-  readonly success: boolean;
-  readonly results: readonly CompilationResult[];
-  readonly totalDuration: number;
-  readonly successCount: number;
   readonly failureCount: number;
+  readonly results: readonly CompilationResult[];
+  readonly success: boolean;
+  readonly successCount: number;
+  readonly totalDuration: number;
 }
 
 export interface CompilerStats {
-  readonly totalTargets: number;
-  readonly completedTargets: number;
-  readonly successfulTargets: number;
-  readonly failedTargets: number;
   readonly averageDuration: number;
+  readonly completedTargets: number;
+  readonly failedTargets: number;
+  readonly successfulTargets: number;
   readonly totalDuration: number;
+  readonly totalTargets: number;
 }

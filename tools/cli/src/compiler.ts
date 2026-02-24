@@ -1,6 +1,7 @@
 import { join } from 'node:path';
 import { consola } from 'consola';
 import { defu } from 'defu';
+
 import { MAX_CONCURRENCY } from './constants';
 import { getPreferredTargets } from './prompts';
 import type {
@@ -13,12 +14,12 @@ import type {
 import { cleanDir, ensureDir, isValidTarget } from './utils';
 
 const COMPILER_DEFAULT_OPTIONS = {
-  outFilePrefix: '',
-  outDir: 'dist',
-  minify: false,
-  sourcemap: false,
   bytecode: false,
   maxConcurrency: Math.min(4, MAX_CONCURRENCY),
+  minify: false,
+  outDir: 'dist',
+  outFilePrefix: '',
+  sourcemap: false,
 } as const satisfies Partial<CompilerOptions>;
 
 function getOutfilePath(outFilePrefix: string, target: string, outDir: string) {
@@ -82,7 +83,7 @@ export async function compile(opts: CompilerOptions): Promise<CompilerResult> {
 
     reportResults(results, totalDuration);
 
-    return { success, results, totalDuration, successCount, failureCount };
+    return { failureCount, results, success, successCount, totalDuration };
   } catch (error) {
     consola.error('Compilation failed:', error);
     throw error;
@@ -107,11 +108,11 @@ async function compileTargets(
         results[currentIndex] = await compileTarget(target, opts);
       } catch (error) {
         results[currentIndex] = {
-          target,
-          success: false,
-          error: error instanceof Error ? error.message : 'Unknown error',
           duration: 0,
+          error: error instanceof Error ? error.message : 'Unknown error',
           outFile: getOutfilePath(opts.outFilePrefix, target, opts.outDir),
+          success: false,
+          target,
         };
       }
 
@@ -152,7 +153,7 @@ async function compileTarget(
       throw new Error(`Exit code ${result.exitCode}: ${errorMessage}`);
     }
 
-    return { target, success: true, duration, outFile };
+    return { duration, outFile, success: true, target };
   } catch (error) {
     const duration = Math.ceil(performance.now() - startTime);
     const errorMessage =
@@ -162,7 +163,7 @@ async function compileTarget(
           ? error
           : 'Unknown error';
 
-    return { target, success: false, error: errorMessage, duration, outFile };
+    return { duration, error: errorMessage, outFile, success: false, target };
   }
 }
 

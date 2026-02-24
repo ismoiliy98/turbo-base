@@ -1,0 +1,25 @@
+{
+  "$schema": "https://biomejs.dev/schemas/latest/schema.json",
+  "extends": "//",
+  "linter": {
+    "rules": {
+      "a11y": { "useKeyWithClickEvents": "off", "useSemanticElements": "off" },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "error",
+          "options": {
+            "attributes": ["className"],
+            "functions": ["clsx", "cva", "tw", "cn"]
+          }
+        }
+      },
+      "suspicious": {
+        "noConsole": {
+          "level": "error",
+          "options": { "allow": ["error", "warn"] }
+        }
+      }
+    }
+  }
+}

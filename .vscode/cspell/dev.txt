@@ -11,3 +11,4 @@ libstdc
 nothrow
 pipefail
 startswith
+worktrees

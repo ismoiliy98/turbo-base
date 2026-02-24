@@ -1,8 +1,8 @@
 {
-  "$schema": "https://turborepo.com/schema.json",
+  "$schema": "https://turborepo.dev/schema.json",
   "extends": ["//"],
   "tasks": {
     "build": { "outputs": ["dist/**"] },
-    "compile": { "interactive": true, "cache": false }
+    "compile": { "cache": false, "interactive": true }
   }
 }

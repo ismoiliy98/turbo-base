@@ -5,7 +5,7 @@ import base from './base';
 
 export default {
   content: [...base.content, '../../packages/ui/src/**/*.{ts,tsx}'],
-  presets: [base],
   plugins: [animate],
+  presets: [base],
   theme: {},
 } satisfies Config;

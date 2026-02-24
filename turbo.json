@@ -1,21 +1,21 @@
 {
-  "$schema": "https://turborepo.com/schema.json",
-  "ui": "tui",
+  "$schema": "https://turborepo.dev/schema.json",
   "globalEnv": ["NODE_ENV"],
   "globalPassThroughEnv": ["PORT"],
+  "remoteCache": { "enabled": true, "signature": true },
   "tasks": {
-    "transit": { "dependsOn": ["^transit"] },
     "//#clean": { "cache": false, "outputLogs": "none" },
-    "clean": { "cache": false, "outputLogs": "none" },
-    "dev": { "cache": false, "persistent": true },
-    "ts:check": {
-      "dependsOn": ["transit"],
-      "outputs": ["node_modules/.cache/.tsbuildinfo"]
-    },
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*", "!.env.sample"]
+    },
+    "clean": { "cache": false, "outputLogs": "none" },
+    "dev": { "cache": false, "persistent": true },
+    "transit": { "dependsOn": ["^transit"] },
+    "ts:check": {
+      "dependsOn": ["transit"],
+      "outputs": ["node_modules/.cache/.tsbuildinfo"]
     }
   },
-  "remoteCache": { "enabled": true, "signature": true }
+  "ui": "tui"
 }

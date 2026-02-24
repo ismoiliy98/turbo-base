@@ -5,6 +5,7 @@ import {
   InvalidArgumentError,
   Option,
 } from '@commander-js/extra-typings';
+
 import { compile } from '../src/compiler';
 import type { SupportedTarget } from '../src/types';
 import { getAvailableTargets, getCurrentPlatformTarget } from '../src/utils';
@@ -57,15 +58,15 @@ program
     }
 
     await compile({
-      entry,
-      targets,
       bytecode: options.bytecode,
       cleanOutDir: options.clean,
+      entry,
+      maxConcurrency: options.concurrency,
       minify: options.minify,
       outDir: options.outdir,
       outFilePrefix: options.prefix,
       sourcemap: options.sourcemap,
-      maxConcurrency: options.concurrency,
+      targets,
     });
   });
 

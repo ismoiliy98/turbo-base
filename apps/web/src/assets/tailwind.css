@@ -42,16 +42,21 @@
     --radius: 1.5rem;
     --shadow-2xs: 0px 8px 16px -4px hsl(0 0% 0% / 0.04);
     --shadow-xs: 0px 8px 16px -4px hsl(0 0% 0% / 0.04);
-    --shadow-sm: 0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 1px 2px -5px
-      hsl(0 0% 0% / 0.08);
-    --shadow: 0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 1px 2px -5px
-      hsl(0 0% 0% / 0.08);
-    --shadow-md: 0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 2px 4px -5px
-      hsl(0 0% 0% / 0.08);
-    --shadow-lg: 0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 4px 6px -5px
-      hsl(0 0% 0% / 0.08);
-    --shadow-xl: 0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 8px 10px -5px
-      hsl(0 0% 0% / 0.08);
+    --shadow-sm:
+      0px 8px 16px -4px hsl(0 0% 0% / 0.08),
+      0px 1px 2px -5px hsl(0 0% 0% / 0.08);
+    --shadow:
+      0px 8px 16px -4px hsl(0 0% 0% / 0.08),
+      0px 1px 2px -5px hsl(0 0% 0% / 0.08);
+    --shadow-md:
+      0px 8px 16px -4px hsl(0 0% 0% / 0.08),
+      0px 2px 4px -5px hsl(0 0% 0% / 0.08);
+    --shadow-lg:
+      0px 8px 16px -4px hsl(0 0% 0% / 0.08),
+      0px 4px 6px -5px hsl(0 0% 0% / 0.08);
+    --shadow-xl:
+      0px 8px 16px -4px hsl(0 0% 0% / 0.08),
+      0px 8px 10px -5px hsl(0 0% 0% / 0.08);
     --shadow-2xl: 0px 8px 16px -4px hsl(0 0% 0% / 0.2);
 
     --font-geist-sans: "Geist Variable", sans-serif;
@@ -94,23 +99,29 @@
     --radius: 1.5rem;
     --shadow-2xs: 0px 8px 16px -4px hsl(0 0% 0% / 0.04);
     --shadow-xs: 0px 8px 16px -4px hsl(0 0% 0% / 0.04);
-    --shadow-sm: 0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 1px 2px -5px
-      hsl(0 0% 0% / 0.08);
-    --shadow: 0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 1px 2px -5px
-      hsl(0 0% 0% / 0.08);
-    --shadow-md: 0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 2px 4px -5px
-      hsl(0 0% 0% / 0.08);
-    --shadow-lg: 0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 4px 6px -5px
-      hsl(0 0% 0% / 0.08);
-    --shadow-xl: 0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 8px 10px -5px
-      hsl(0 0% 0% / 0.08);
+    --shadow-sm:
+      0px 8px 16px -4px hsl(0 0% 0% / 0.08),
+      0px 1px 2px -5px hsl(0 0% 0% / 0.08);
+    --shadow:
+      0px 8px 16px -4px hsl(0 0% 0% / 0.08),
+      0px 1px 2px -5px hsl(0 0% 0% / 0.08);
+    --shadow-md:
+      0px 8px 16px -4px hsl(0 0% 0% / 0.08),
+      0px 2px 4px -5px hsl(0 0% 0% / 0.08);
+    --shadow-lg:
+      0px 8px 16px -4px hsl(0 0% 0% / 0.08),
+      0px 4px 6px -5px hsl(0 0% 0% / 0.08);
+    --shadow-xl:
+      0px 8px 16px -4px hsl(0 0% 0% / 0.08),
+      0px 8px 10px -5px hsl(0 0% 0% / 0.08);
     --shadow-2xl: 0px 8px 16px -4px hsl(0 0% 0% / 0.2);
   }
 
   .root::before {
     content: "";
 
-    background: radial-gradient(
+    background:
+      radial-gradient(
         ellipse 50% 50% at 0% 0%,
         hsl(var(--accent) / 0.25),
         transparent 70%
@@ -133,29 +144,43 @@
 
     animation: bg-pos 25s infinite;
     background-size: 200% 200%;
-    background-position: 100% 0%, 0% 100%;
+    background-position:
+      100% 0%,
+      0% 100%;
 
     @apply absolute inset-0 saturate-200;
   }
 
   @keyframes bg-pos {
     0% {
-      background-position: 0% 0%, 100% 100%;
+      background-position:
+        0% 0%,
+        100% 100%;
     }
     20% {
-      background-position: 100% 0%, 100% 0%;
+      background-position:
+        100% 0%,
+        100% 0%;
     }
     40% {
-      background-position: 0% 100%, 100% 100%;
+      background-position:
+        0% 100%,
+        100% 100%;
     }
     60% {
-      background-position: 0% 100%, 0% 0%;
+      background-position:
+        0% 100%,
+        0% 0%;
     }
     80% {
-      background-position: 0% 100%, 0% 100%;
+      background-position:
+        0% 100%,
+        0% 100%;
     }
     100% {
-      background-position: 0% 0%, 100% 100%;
+      background-position:
+        0% 0%,
+        100% 100%;
     }
   }
 }

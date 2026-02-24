@@ -8,8 +8,8 @@ export default defineConfig(({ mode }) => {
   const port = Number.parseInt(loadEnv(mode, process.cwd(), '').PORT, 10);
 
   return {
-    plugins: [tsConfigPaths(), tanstackStart({ target: 'bun' })],
     css: { postcss: { plugins: [tailwindcss(), autoprefixer()] } },
+    plugins: [tsConfigPaths(), tanstackStart({ target: 'bun' })],
     server: { port },
   };
 });

@@ -54,7 +54,7 @@
     "@types/bun": "catalog:tooling",
     "@types/node": "catalog:tooling",
     "lefthook": "^2.1.3",
-    "turbo": "^2.8.15",
+    "turbo": "^2.8.16",
     "typescript": "catalog:tooling"
   },
   "packageManager": "bun@1.3.9",

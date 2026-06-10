@@ -36,7 +36,7 @@ RUN --mount=type=secret,id=TURBO_API \
 
 # ==============================================================================
 
-FROM alpine:3.23.4
+FROM alpine:3.24.0
 WORKDIR /app
 ENV DO_NOT_TRACK='1' \
   NODE_ENV='production' \

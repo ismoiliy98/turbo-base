@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.1",
-    "@commitlint/config-conventional": "^21.0.2",
+    "@commitlint/config-conventional": "^21.1.0",
     "@cspell/dict-ru_ru": "^2.3.2",
     "@types/bun": "catalog:tooling",
     "@types/node": "catalog:tooling",

@@ -7,7 +7,7 @@
       "devDependencies": {
         "@biomejs/biome": "^2.5.15",
         "@commitlint/config-conventional": "^21.2.3",
-        "@cspell/dict-ru_ru": "^2.3.2",
+        "@cspell/dict-ru_ru": "^2.3.3",
         "@types/bun": "catalog:tooling",
         "@types/node": "catalog:tooling",
         "lefthook": "^2.1.16",
@@ -238,7 +238,7 @@
 
     "@conventional-changelog/template": ["@conventional-changelog/template@1.2.0", "", {}, "sha512-12qHxvlKjHmP0PQ+17EREgC7lWyLwbph1RKcZQZ7k7ZWGmrxfxC9gadHGfvzr0g0u8BhiBGg3tks93txodlyRQ=="],
 
-    "@cspell/dict-ru_ru": ["@cspell/dict-ru_ru@2.3.2", "", {}, "sha512-wYGINTRjfKycUrXAASgnoBjiLlhn7EE7H5B5MMbTwhiLijfWOhyRiNajGpn0aY5H4UDWnfch3kGnQ1zr/wKzaw=="],
+    "@cspell/dict-ru_ru": ["@cspell/dict-ru_ru@2.3.3", "", {}, "sha512-LjZGsi99nEwJYcbrXmW2HADGnmDmoGNY1fbsVX0ksFHUTSqgnNoP5f6cESqygL8UkZ+TWaVwBkjM50zD7HS4CQ=="],
 
     "@dabh/diagnostics": ["@dabh/diagnostics@2.0.3", "", { "dependencies": { "colorspace": "1.1.x", "enabled": "2.0.x", "kuler": "^2.0.0" } }, "sha512-hrlQOIi7hAfzsMqlGSFyVucrx38O+j6wiGOf//H2ecvIEqYN4ADBSS2iLMh5UFyDunCNniUIPk/q3riFv45xRA=="],
 

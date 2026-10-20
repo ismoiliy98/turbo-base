@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@commander-js/extra-typings": "^15.0.0",
-    "@inquirer/prompts": "^8.7.3",
+    "@inquirer/prompts": "^8.7.4",
     "@tool/tsconfig": "workspace:",
     "@types/bun": "catalog:tooling",
     "@types/node": "catalog:tooling",

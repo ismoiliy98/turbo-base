@@ -57,9 +57,9 @@
     "turbo": "^2.11.10",
     "typescript": "catalog:tooling"
   },
-  "packageManager": "bun@1.4.3",
+  "packageManager": "bun@1.4.4",
   "engines": {
-    "bun": "1.4.3",
+    "bun": "1.4.4",
     "vscode": "^1.22.0"
   },
   "catalogs": {

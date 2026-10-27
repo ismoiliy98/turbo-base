@@ -24,7 +24,7 @@
     "@tool/tsconfig": "workspace:",
     "@types/react": "catalog:react",
     "@types/react-dom": "catalog:react",
-    "autoprefixer": "^10.6.1",
+    "autoprefixer": "^10.6.2",
     "postcss": "^8.5.31",
     "tailwindcss": "catalog:tooling",
     "typescript": "catalog:tooling",

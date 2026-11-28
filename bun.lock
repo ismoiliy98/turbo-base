@@ -6,7 +6,7 @@
       "name": "turbo-base",
       "devDependencies": {
         "@biomejs/biome": "^2.5.15",
-        "@commitlint/config-conventional": "^21.2.4",
+        "@commitlint/config-conventional": "^21.3.0",
         "@cspell/dict-ru_ru": "^2.3.4",
         "@types/bun": "catalog:tooling",
         "@types/node": "catalog:tooling",
@@ -232,9 +232,9 @@
 
     "@commander-js/extra-typings": ["@commander-js/extra-typings@15.1.0", "", { "peerDependencies": { "commander": "~15.1.0" } }, "sha512-FsI7l5tFON52RyyDKyCkvwFl+peHZuP5TZ7AhxbDFGo/5T6KQd4+KE48aJ8jrDSSAQDvZ8hYKX47fmwZ5bGFNw=="],
 
-    "@commitlint/config-conventional": ["@commitlint/config-conventional@21.2.4", "", { "dependencies": { "@commitlint/types": "^21.2.3", "conventional-changelog-conventionalcommits": "^10.0.0" } }, "sha512-IRldtwgNmR0SySR7wizFbhRmq45lPt6H3XCNTMyVN7jrPLgi8JlTRR6Eg1HLWUQt9P1Lh3k6eY25ilDa47EE6w=="],
+    "@commitlint/config-conventional": ["@commitlint/config-conventional@21.3.0", "", { "dependencies": { "@commitlint/types": "^21.3.0", "conventional-changelog-conventionalcommits": "^10.0.0" } }, "sha512-jWTouDSbhDqlJyJCN3RW0v7nxhU28MsUb5Gsrp8An6W4Xqa3GkrvjMdRbnoVX7S8oVgHy12p8Pmq2r8PCPOQ7w=="],
 
-    "@commitlint/types": ["@commitlint/types@21.2.3", "", { "dependencies": { "conventional-commits-parser": "^7.0.0", "picocolors": "^1.1.1" } }, "sha512-sGEA473TlCvhCGNoTBY9OXZVWdscIXdGt0dm8EpB+2MRfmt8LNh/X56P/T3nCtEB+eH5qGEa3odphSAoUxSfSQ=="],
+    "@commitlint/types": ["@commitlint/types@21.3.0", "", { "dependencies": { "conventional-commits-parser": "^7.0.0", "picocolors": "^1.1.1" } }, "sha512-3tg5Ea8vNvA1a1oBoyTcRXNJwVWZec9LBxud8XYmljNeYtya2ZToaGUyFlAfctiHIHDmf1Ijq5F8zXmnEY9r2w=="],
 
     "@conventional-changelog/template": ["@conventional-changelog/template@1.2.0", "", {}, "sha512-12qHxvlKjHmP0PQ+17EREgC7lWyLwbph1RKcZQZ7k7ZWGmrxfxC9gadHGfvzr0g0u8BhiBGg3tks93txodlyRQ=="],
 
